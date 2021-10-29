@@ -9,7 +9,7 @@ import './index.css';
 const name = "Souvik Pal";
 const curr = new Date();
 const img01 = "https://picsum.photos/300/300";
-const img02 = "https://picsum.photos/id/237/300/300";
+const img02 = "https://picsum.photos/id/236/300/300";
 const img03 = "https://picsum.photos/300/300?grayscale";
 
 const style = {
