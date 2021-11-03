@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Ceviche+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+#root, body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: rgb(216, 216, 216);
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    height: 80px;
+    background-color: white;
+}
+h1{
+    text-align: center;
+}
+.series{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.cardOuter{
+    width: 23%;
+    height: 390px;
+    margin: 2% 5.14% 2% 5.14%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px -6px black;
+    margin: 1%;
+}
+img{
+    width: 100%;
+    height: 60%;
+}
+.cardInfo{
+    margin-top: 5%;
+	margin-left: 7%;
+}
+.cardCategory{
+    text-transform: uppercase;
+    font-family: 'Arvo', serif;
+    font-size: 16px;
+    color: rgb(92, 92, 92);
+    margin-top: 0;
+}
+.cardTitle{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid rgb(92, 92, 92);
+    padding: 2%;
+    font-size: 12px;
+    font-family: 'Arvo', serif;
+    color: rgb(92, 92, 92);
+    border-radius: 10px;
+}
+.card:hover{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    transition: 0.3s;
+}
+.footer{
+    margin-top: auto;
+    height: 60px;
+    background-color: white;
+}
+.footer p{
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width:768px) {
+    .series{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cardOuter{
+        width: 80%;
+        margin: 20px;
+    }
+}
