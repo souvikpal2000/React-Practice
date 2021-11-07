@@ -7,6 +7,7 @@ import SeriesData from './SeriesData';
 function card(value){
 	return(
 		<Card 
+			key={value.id}
 			image={value.image}
 			category={value.category}
 			title={value.title}
