@@ -1,0 +1,53 @@
+body{
+	background-color: rgb(226, 226, 226);
+	margin: 0;
+}
+body, #root{
+	width: 100%;
+	height: 100vh;
+}
+#root{
+	display: flex;
+	flex-direction: column;
+}
+.heading, .footer{
+	background-color: white;
+	margin: 0;
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.slotContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+}
+.slotDiv{
+	width: 40%;
+	border: 3px solid grey;
+	box-shadow: 10px 10px 8px 5px grey;
+}
+
+.slotInner{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.emojies{
+	margin-bottom: 0;
+}
+.result{
+	margin-top: 1rem;
+}
+.footer{
+	margin-top: auto;
+	font-size: 20px;
+}
+@media (max-width: 768px){
+	.slotDiv{
+		width: 90%;
+	}
+}
