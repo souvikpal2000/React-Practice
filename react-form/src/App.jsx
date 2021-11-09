@@ -1,26 +1,50 @@
 import React, { useState } from 'react';
 
 const App = () => {
-    const [firstName,setFirstName] = useState("");
-    const [lastName,setLastName] = useState("");
-    const [fullname,setFullName] = useState("");
-    const firstChange = (event) => {
-        setFirstName(event.target.value);
-    }
-    const lastChange = (event) => {
-        setLastName(event.target.value);
+    const [name,setName] = useState({
+        fname: "",
+        lname: "",
+        fullName: "",
+    });
+    const change = (event) => {
+        const value = event.target.value;
+        const name = event.target.name;
+        if(name === "first"){
+            setName((preValue) => {
+                return{
+                    fname: value,
+                    lname: preValue.lname,
+                    fullName: preValue.fullName
+                }
+            });
+        }
+        else if(name === "last"){
+            setName((preValue) => {
+                return{
+                    fname: preValue.fname,
+                    lname: value,
+                    fullName: preValue.fullName
+                }
+            });
+        }
     }
     const submit = (event) => {
         event.preventDefault();
-        setFullName(firstName + " " + lastName);
+        setName((preValue) => {
+            return{
+                fname: preValue.fname,
+                lname: preValue.lname,
+                fullName: preValue.fname + " " + preValue.lname
+            }
+        });
     }
     return(
         <React.Fragment>
             <div className="container">
-                <h1>Hello!! <i>{fullname}</i></h1>
+                <h1>Hello!! <i>{name.fullName}</i></h1>
                 <form onSubmit={submit}>
-                    <input type="text" placeholder="Enter First Name" value={firstName} onChange={firstChange}/>
-                    <input type="text" placeholder="Enter Last Name" value={lastName} onChange={lastChange}/>
+                    <input type="text" name="first" placeholder="Enter First Name" value={name.fname} onChange={change}/>
+                    <input type="text" name="last" placeholder="Enter Last Name" value={name.lname} onChange={change}/>
                     <button>Submit</button>
                 </form>
             </div>
