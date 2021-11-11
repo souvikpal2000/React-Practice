@@ -9,7 +9,13 @@ const App = () => {
     const change = (event) => {
         const value = event.target.value;
         const name = event.target.name;
-        if(name === "first"){
+        setName((preValue) => {
+            return{
+                ...preValue,
+                [name]: value
+            }
+        });
+/*         if(name === "first"){
             setName((preValue) => {
                 return{
                     fname: value,
@@ -26,7 +32,7 @@ const App = () => {
                     fullName: preValue.fullName
                 }
             });
-        }
+        } */
     }
     const submit = (event) => {
         event.preventDefault();
@@ -43,8 +49,8 @@ const App = () => {
             <div className="container">
                 <h1>Hello!! <i>{name.fullName}</i></h1>
                 <form onSubmit={submit}>
-                    <input type="text" name="first" placeholder="Enter First Name" value={name.fname} onChange={change}/>
-                    <input type="text" name="last" placeholder="Enter Last Name" value={name.lname} onChange={change}/>
+                    <input type="text" name="fname" placeholder="Enter First Name" value={name.fname} onChange={change}/>
+                    <input type="text" name="lname" placeholder="Enter Last Name" value={name.lname} onChange={change}/>
                     <button>Submit</button>
                 </form>
             </div>
