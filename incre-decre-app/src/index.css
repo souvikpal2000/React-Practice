@@ -21,14 +21,25 @@ body{
     width: 7rem;
     height: 5rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    background-color: purple;
+}
+.addBtn{
+    background-color: rgb(59, 184, 59) !important;
+    color: white !important;
+}
+.minusBtn{
+    background-color: red !important;
+    color: white !important;
 }
 .addBtn:hover{
-    color: rgb(105, 241, 105);
-    background-color: white;
+    color: rgb(105, 241, 105) !important;
+    background-color: white !important;
 }
 .minusBtn:hover{
-    color: red;
+    color: red !important;
+    background-color: white !important;
+}
+.icon{
+    font-size: 3rem !important;
 }
 .heading, .buttons{
     height: 50%;
@@ -54,5 +65,8 @@ body{
     }
     .result{
         font-size: 4.5rem;
+    }
+    .icon{
+        font-size: 2rem !important;
     }
 }
