@@ -12,7 +12,8 @@ const style = [
         backgroundColor: 'red',
         color: 'white'
     }
-]
+];
+
 const Buttons = (props) => {
     let {increFunc, decreFunc} = props;
     return(
