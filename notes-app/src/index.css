@@ -1,0 +1,9 @@
+body{
+  margin: 0;
+}
+.item{
+  display: flex;
+}
+.cross{
+  cursor: pointer;
+}

@@ -1,0 +1,89 @@
+import React, { useState } from 'react';
+import Form from './components/Form';
+import NoteCard from './components/NoteCard';
+
+const App = () => {
+    let [open, setOpen] = useState(false);
+    const expand = () => {
+        setOpen(true);
+    }
+
+    let [input, setInput] = useState({
+        title: "",
+        note: ""
+    })
+    const change = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+        setInput((preValue) => {
+            return{
+                ...preValue,
+                [name]: value
+            }
+        })
+    }
+
+    let [notes, setNotes] = useState([]);
+    const submitNote = (event) => {
+        event.preventDefault();
+        setNotes((preValues) => {
+            return[
+                ...preValues,
+                input
+            ]
+        });
+        setInput({
+            title: "",
+            note: ""
+        })
+    }
+
+    const remove = (event) => {
+        let id = parseInt(event.target.id);
+        setNotes((preValues) => {
+            return(
+                preValues.filter((note, index) => {
+                    return(index !== id);
+                })
+            )
+        })
+    }
+
+    let [editBtn, setEditBtn] = useState(false);
+    let [id, setId] = useState();
+    const edit = (event) => {
+        setEditBtn(true);
+        setId(event.target.id);
+        const id = event.target.id;
+        setInput({
+            title: notes[id].title,
+            note: notes[id].note
+        });
+
+    }
+    const editNote = (event) => {
+        event.preventDefault();
+        let newArr = [...notes];
+        newArr[id] = input;
+        setNotes(newArr);
+    }
+
+    return(
+        <React.Fragment>
+            <div className="form">
+                <Form isOpen={open} isEdit={editBtn} values={input} onChangeFunc={change} onClickFunc={expand} onSubmitEditFunc={editNote} onSubmitFunc={submitNote} />
+            </div>
+            <div className='notes'>
+                {
+                    notes.map((data, index) => {
+                        return(
+                            <NoteCard key={index} id={index} editFunc={edit} onClickFunc={remove} dataValues={data}/>
+                        ); 
+                    })
+                }
+            </div>
+        </React.Fragment>
+    );
+}
+
+export default App;
