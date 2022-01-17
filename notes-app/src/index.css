@@ -4,6 +4,6 @@ body{
 .item{
   display: flex;
 }
-.cross{
+.cross, .edit{
   cursor: pointer;
 }

@@ -3,9 +3,28 @@ import Form from './components/Form';
 import NoteCard from './components/NoteCard';
 
 const App = () => {
-    let [open, setOpen] = useState(false);
+    let [open, setOpen] = useState({
+        active: false,
+        btnValue: "",
+        edit: false
+    });
+    let [editBtn, setEditBtn] = useState(false);
+
     const expand = () => {
-        setOpen(true);
+        if(editBtn){
+            setOpen({
+                active: true,
+                btnValue: "Edit",
+                edit: true
+            });
+        }
+        else{
+            setOpen({
+                active: true,
+                btnValue: "Submit",
+                edit: false
+            });
+        }
     }
 
     let [input, setInput] = useState({
@@ -49,10 +68,14 @@ const App = () => {
         })
     }
 
-    let [editBtn, setEditBtn] = useState(false);
     let [id, setId] = useState();
     const edit = (event) => {
         setEditBtn(true);
+        setOpen({
+            active: true,
+            btnValue: "Edit",
+            edit: true
+        });
         setId(event.target.id);
         const id = event.target.id;
         setInput({
@@ -66,12 +89,22 @@ const App = () => {
         let newArr = [...notes];
         newArr[id] = input;
         setNotes(newArr);
+        setInput({
+            title: "",
+            note: ""
+        });
+        setEditBtn(false);
+        setOpen({
+            active: true,
+            btnValue: "Submit",
+            edit: false
+        });
     }
 
     return(
         <React.Fragment>
             <div className="form">
-                <Form isOpen={open} isEdit={editBtn} values={input} onChangeFunc={change} onClickFunc={expand} onSubmitEditFunc={editNote} onSubmitFunc={submitNote} />
+                <Form isOpen={open} values={input} onChangeFunc={change} onClickFunc={expand} onSubmitEditFunc={editNote} onSubmitFunc={submitNote} />
             </div>
             <div className='notes'>
                 {
