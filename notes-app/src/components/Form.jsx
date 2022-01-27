@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Form = (props) => {
-    let {isOpen, values, onChangeFunc, onClickFunc, onSubmitEditFunc, onSubmitFunc} = props;
+    let {isOpen, values, onChangeFunc, onClickFunc, onSubmitEditFunc, onSubmitFunc, isClose, onCloseFunc} = props;
     return(
         <React.Fragment>
                 <form method="POST" onSubmit={(isOpen.edit && onSubmitEditFunc) || onSubmitFunc}>
@@ -9,6 +9,7 @@ const Form = (props) => {
                     <input name="note" placeholder='Take Note...' value={values.note} onClick={onClickFunc} onChange={onChangeFunc}/>
                     {(isOpen.active && isOpen.edit && <input type="submit" value={isOpen.btnValue} />) || (isOpen.active && <input type="submit" value={isOpen.btnValue} />)}
                 </form>
+                {(isClose && <input type="submit" value="Close" onClick={onCloseFunc}/>)}
         </React.Fragment>
     )
 }

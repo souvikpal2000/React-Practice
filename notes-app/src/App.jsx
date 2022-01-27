@@ -8,6 +8,15 @@ const App = () => {
         btnValue: "",
         edit: false
     });
+    let [close, setClose] = useState(false);
+    const closeFunc = () => {
+        setOpen({
+            active: false,
+            btnValue: "",
+            edit: false
+        })
+        setClose(false);
+    }
     let [editBtn, setEditBtn] = useState(false);
 
     const expand = () => {
@@ -17,6 +26,7 @@ const App = () => {
                 btnValue: "Edit",
                 edit: true
             });
+            setClose(true);
         }
         else{
             setOpen({
@@ -24,6 +34,7 @@ const App = () => {
                 btnValue: "Submit",
                 edit: false
             });
+            setClose(true);
         }
     }
 
@@ -104,7 +115,7 @@ const App = () => {
     return(
         <React.Fragment>
             <div className="form">
-                <Form isOpen={open} values={input} onChangeFunc={change} onClickFunc={expand} onSubmitEditFunc={editNote} onSubmitFunc={submitNote} />
+                <Form isOpen={open} values={input} onChangeFunc={change} onClickFunc={expand} onSubmitEditFunc={editNote} onSubmitFunc={submitNote} isClose={close} onCloseFunc={closeFunc}/>
             </div>
             <div className='notes'>
                 {
