@@ -15,7 +15,12 @@ const App = () => {
             btnValue: "",
             edit: false
         })
+        setInput({
+            title: "",
+            note: ""
+        })
         setClose(false);
+        setEditBtn(false);
     }
     let [editBtn, setEditBtn] = useState(false);
 
@@ -93,6 +98,7 @@ const App = () => {
             title: notes[id].title,
             note: notes[id].note
         });
+        setClose(true);
 
     }
     const editNote = (event) => {
