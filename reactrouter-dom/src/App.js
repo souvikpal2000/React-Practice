@@ -10,13 +10,13 @@ import Error from './Components/Error';
 const App = () => {
     return(
         <React.Fragment>
-            <Menu />
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/contact" component={Contact} exact/>
                 <Route path="/about" component={About} exact/>
                 <Route component={Error} />
             </Switch>
+            <Menu />
         </React.Fragment>
     )
 }
