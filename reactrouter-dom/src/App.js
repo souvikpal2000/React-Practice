@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 import Menu from './Components/Menu';
 import Home from './Components/Home';
+import User from './Components/User';
 import Contact from './Components/Contact';
 import About from './Components/About';
 import Error from './Components/Error';
@@ -12,6 +13,7 @@ const App = () => {
         <React.Fragment>
             <Switch>
                 <Route path="/" component={Home} exact />
+                <Route path="/user/:fname/:lname" component={User} exact/>
                 <Route path="/contact" component={Contact} exact/>
                 <Route path="/about" component={About} exact/>
                 <Route component={Error} />
