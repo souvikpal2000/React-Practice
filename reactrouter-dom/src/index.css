@@ -39,3 +39,7 @@ h1{
 .active{
   background-color: green;
 }
+.secret{
+  color: white;
+  text-align: center;
+}

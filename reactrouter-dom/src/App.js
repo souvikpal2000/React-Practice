@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, useLocation} from 'react-router-dom';
 
 import Menu from './Components/Menu';
 import Home from './Components/Home';
@@ -9,6 +9,8 @@ import About from './Components/About';
 import Error from './Components/Error';
 
 const App = () => {
+    const location = useLocation();
+    //console.log(location.pathname);
     return(
         <React.Fragment>
             <Switch>
@@ -18,6 +20,7 @@ const App = () => {
                 <Route path="/about" component={About} exact/>
                 <Route component={Error} />
             </Switch>
+            {location.pathname === '/user/secret/v1'? <h4 className="secret">You got me !!!</h4> : null}
             <Menu />
         </React.Fragment>
     )
