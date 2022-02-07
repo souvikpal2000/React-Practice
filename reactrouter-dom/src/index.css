@@ -42,4 +42,13 @@ h1{
 .secret{
   color: white;
   text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.secretContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 0rem 1rem 0rem;
 }
