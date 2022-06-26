@@ -38,7 +38,8 @@ const App = () => {
         event.preventDefault();
         setName((preValue) => {
             return{
-                ...preValue,
+                fname: "",
+                lname: "",
                 fullName: preValue.fname + " " + preValue.lname
             }
         });
