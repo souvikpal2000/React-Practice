@@ -7,32 +7,13 @@ const App = () => {
         fullName: "",
     });
     const change = (event) => {
-        const value = event.target.value;
-        const name = event.target.name;
+        const { name, value } = event.target;
         setName((preValue) => {
             return{
                 ...preValue,
                 [name]: value
             }
         });
-/*         if(name === "first"){
-            setName((preValue) => {
-                return{
-                    fname: value,
-                    lname: preValue.lname,
-                    fullName: preValue.fullName
-                }
-            });
-        }
-        else if(name === "last"){
-            setName((preValue) => {
-                return{
-                    fname: preValue.fname,
-                    lname: value,
-                    fullName: preValue.fullName
-                }
-            });
-        } */
     }
     const submit = (event) => {
         event.preventDefault();
