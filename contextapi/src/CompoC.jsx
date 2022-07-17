@@ -9,7 +9,7 @@ const CompoC = () => {
                     return(
                         <lastName.Consumer>
                             {(lname) => {
-                                return <h1>My name is {fname} {lname}</h1>
+                                return <h1>My name is {fname} {lname} = With the help of Producer & Consumer</h1>
                             }}
                         </lastName.Consumer>
                     )
