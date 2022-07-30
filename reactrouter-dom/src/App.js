@@ -9,15 +9,15 @@ import Page from './Components/Page';
 const App = () => {
     const location = useLocation();
     const history = useHistory();
-    //console.log(location.pathname);
+    console.log(location.pathname);
     console.log(history);
     return(
         <React.Fragment>
             <Switch>
-                <Route path="/" render={() => <Page name='Home' />} exact />
-                <Route path="/user/:fname/:lname" component={User} exact/>
-                <Route path="/contact" render={() => <Page name='Contact' />} exact/>
-                <Route path="/about" render={() => <Page name='About' /> } exact/>
+                <Route exact path="/" render={() => <Page name='Home' />} />
+                <Route exact path="/user/:fname/:lname" component={User} />
+                <Route exact path="/contact" render={() => <Page name='Contact' />} />
+                <Route exact path="/about" render={() => <Page name='About' /> } />
                 <Route component={Error} />
             </Switch>
             {location.pathname === '/user/secret/v1'? 

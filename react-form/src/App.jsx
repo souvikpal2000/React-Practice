@@ -18,6 +18,9 @@ const App = () => {
     }
     const submit = (event) => {
         event.preventDefault();
+        if(!info.fname || !info.lname || !info.email){
+            return alert("Fill the Data");
+        }
         setInfo((preValue) => {
             return{
                 fname: "",
