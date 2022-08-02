@@ -20,7 +20,7 @@ const Search = () => {
             <div className="inputContainer">
                 <input type="text" value={data.text} placeholder="Type Something" onChange={setInput}/>
             </div>
-            <Image image={data.text} random={data.random} />
+            <Image {...data} />
         </>
     )
 }
